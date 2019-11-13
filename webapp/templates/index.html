@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <form action="/" method="POST">
+    <input type="submit" name="submit_button" value="Drink 1">
+    <input type="submit" name="submit_button" value="Drink 2">
+    <input type="submit" name="submit_button" value="Drink 3">
+    <input type="submit" name="submit_button" value="Drink 4">
+    <input type="submit" name="submit_button" value="Drink 5">
+
+    </form>
+<!-- Test af slider, se app.py-->
+    <!--form method="POST" action="test">
+        <input type="range" min="0" max="100" name="name_of_slider" />
+        <input type="submit" value="submit"/-->
+    </form>
+</div>
+{% endblock %}
