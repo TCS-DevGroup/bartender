@@ -21,7 +21,7 @@
 # Import required libraries
 import sys
 import time
-import RPi.GPIO as GPIO
+from gpiozero import LEDBoard
 
 # Use BCM GPIO references
 # instead of physical pin numbers
@@ -30,14 +30,13 @@ GPIO.setmode(GPIO.BCM)
 # Define GPIO signals to use
 # Physical pins 11,15,16,18
 # GPIO17,GPIO22,GPIO23,GPIO24
-StepPins = [17,22,23,24]
+#StepPins = [17,22,23,24]
+StepPins = LEDBoard(5, 6, 13, 19, 26)
+
 
 # Set all pins as output
 for pin in StepPins:
-  print("Setup pins")
-  GPIO.setup(pin,GPIO.OUT)
-  GPIO.output(pin, False)
-
+  print("GPIO pins in use:"+str(pin))
 # Define advanced sequence
 # as shown in manufacturers datasheet
 Seq = [[1,0,0,1],
@@ -72,9 +71,9 @@ while True:
     xpin = StepPins[pin]
     if Seq[StepCounter][pin]!=0:
       print(" Enable GPIO %i" %(xpin))
-      GPIO.output(xpin, True)
+      xpin.on()
     else:
-      GPIO.output(xpin, False)
+      xpin.off()
 
   StepCounter += StepDir
 
