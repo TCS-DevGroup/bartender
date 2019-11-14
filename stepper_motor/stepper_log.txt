@@ -1,2 +1,5 @@
 code from:
-https://gpiozero.readthedocs.io/en/stable/recipes.html
+https://gpiozero.readthedocs.io/en/stable/recipes.htm
+
+python stepper code:
+https://www.raspberrypi-spy.co.uk/2012/07/stepper-motor-control-in-python/#prettyPhotol
