@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <script src="libs/socket.io.js"></script> -->
+    
+    
+<style>
+    table, th, td {
+        border: 2px solid black;
+        border-collapse: collapse;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    img {
+        margin-top: 3%;
+        margin-left: 3%;
+        margin-bottom: 3%;
+    }
+    h4 {
+        margin-top: 3%;
+        margin-left: 3%;
+        
+        font-size: 30px;
+        display:inline-block;   
+    }
+    button {
+        
+        margin-left: 3%;
+        margin-bottom: 3%;
+        background-color: #808080;
+        border: line;
+        color: white;
+        padding: 0px 5px;
+        font-size: 15px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    .stationPicker {
+        padding-top: 20px;
+        padding-right: 30px;
+        padding-bottom: 50px;
+        padding-left: 80px;
+    }
+
+ 
+
+</style>
+
+</head>
+<body style="background-color: #eee">
+<br><br>
+
+<img src="KEN-HYGIENE-SYSTEMS_logo_160419.png" alt="KEN_logo" width="1007" height="150">
+
+<br>
+<h1>Please choose the station you are going to work with</h1>
+
+<div class="stationPicker">
+    <input type="button" onclick="Station1()" value="Go to Station 1" />  &nbsp;&nbsp;
+    <input type="button" onclick="Station2()" value="Go to Station 2" />  &nbsp;&nbsp;
+    <input type="button" onclick="Station3()" value="Go to Station 3" />  &nbsp;&nbsp;
+    <input type="button" onclick="Station4()" value="Go to Station 4" />  &nbsp;&nbsp;
+    <input type="button" onclick="StationHS()" value="Go to Station High Speed" />
+</div>
+
+    <script type="application/x-javascript" src="scripts/APV/src/mastercoordinator/src/homepage.js"></script>    
+</body>
+</html> 

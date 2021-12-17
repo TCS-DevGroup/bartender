@@ -4,7 +4,6 @@ import {Request, Response} from 'express';
 
 let g_httpServer : any;
 let g_io : any;
-const serverPort:number = 8000;
 
 export function HttpInitialize ( portno:number )
 {
@@ -18,14 +17,14 @@ export function HttpInitialize ( portno:number )
 
     
     app.get('/',function(req:Request,res:Response){
-        res.render('frontpage.ejs',{
+        res.render('frontpage.ejs'/*,{
             topicHead : 'Student Form',
-        });
+        }*/);
         console.log('user accessing Home page');
     });
     
 
-    app.listen(5000,function(){
+    app.listen( portno,function(){
         console.log('server running on port 5000 mhmhm');
     })
 

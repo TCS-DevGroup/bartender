@@ -18,7 +18,7 @@ function HttpInitialize(portno) {
         console.log('user accessing Home page');
     });
     app.listen(5000, function () {
-        console.log('server running on port 5000');
+        console.log('server running on port 5000 mhmhm');
     });
     app.set("view engine", "ejs");
     app.set("views", "../client");
