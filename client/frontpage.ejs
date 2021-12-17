@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <script src="libs/socket.io.js"></script> -->
+    
+    
+<style>
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+img {
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-bottom: 3%;
+}
+h4 {
+    margin-top: 3%;
+    margin-left: 3%;
+    
+    font-size: 30px;
+    display:inline-block;   
+}
+button {
+    
+    margin-left: 3%;
+    margin-bottom: 3%;
+    background-color: #808080;
+    border: line;
+    color: white;
+    padding: 0px 5px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.stationPicker {
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+}
+
+.navbar {
+    color: white;
+    background-color: black;
+}
+
+.sidebar {    
+    border: black;
+}
+</style>
+</head>
+
+<html>
+<body style="background-color: #ffffff">
+<title>Lets get drinking! :)</title>
+
+<div class="navbar">
+    Menu btn(Todo)
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2" id="sidebar" style="border-right:1px solid #706f6f;"> 
+            <h1>setting and / or quick overview page</h1>
+            <div > 
+                <button id='btn' onclick="Mybtn()" >My button</button>
+            </div>
+        </div>
+        
+        <div class="col-10">
+            <p>todo make card for every drinks available.</p>
+            <button id='my'  onclick="myFunction();" >My button</button>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script type="text/javascript" src="../server/dist/frontpage.js">
+    function myFunction() {
+        alert("Hey there! I am using external JavaScript");
+    }
+    
+</script>
+</html> 
