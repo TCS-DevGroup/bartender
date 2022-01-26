@@ -3,7 +3,7 @@ require ( './router' );
 const world = 'world';
 
 
-hello()
+//hello()
 HttpInitialize( 5000 );
 console.log( 'hey');
 

@@ -16,6 +16,11 @@ export function HttpInitialize ( portno:number )
     g_httpServer = require("http").Server(app);
 
     
+    app.set("view engine", "ejs");
+    app.set("views", "../client/dist" );
+
+    app.set("view options", { layout: false} );
+
     app.get('/',function(req:Request,res:Response){
         res.render('frontpage.ejs'/*,{
             topicHead : 'Student Form',
@@ -23,39 +28,23 @@ export function HttpInitialize ( portno:number )
         console.log('user accessing Home page');
     });
     
+    app.use ( express.static("dist"));
 
-    app.listen( portno,function(){
-        console.log('server running on port 5000 mhmhm');
-    })
-
+    const io = require('socket.io')(g_httpServer);
+    const port = portno;
         
     
-    app.set("view engine", "ejs");
-    app.set("views", "../client" );
-    //app.set("views", "dist" );
-    app.set("view options", { layout: false} );
-
-// Pages    
-    /*
-    app.get('/', async function ( req: Request, res: Response ) {
-        res.render ( 'homepage' );
-    });
-
-    app.get('/dashboard', async function ( req: Request, res: Response ) {
-        res.render ( 'dashboard' );
+    io.on('connection', (socket:any ) => {
+      socket.on('chat message', (msg:any) => {
+        io.emit('chat message', msg);
+      });
     });
     
-    app.get('/calibration', async function ( req: Request, res: Response ) {
-        res.render ( 'calibration' );
+    g_httpServer.listen(port, () => {
+      console.log(`Socket.IO server running at http://localhost:${port}/`);
     });
-    
-    app.get('/developer', async function ( req: Request, res: Response ) {
-        res.render ( 'developer' );
-    });
-    */
-
+}
     /*
-    app.use ( express.static("dist"));
 
     g_httpServer.listen ( portno, (err:any) => {
         if(err)
@@ -77,21 +66,8 @@ export function HttpInitialize ( portno:number )
                 console.log("a user disconnected");
             });
         });
-    
+        
         console.info("Listening on *." + portno);
     });
-    */
-}
-
-/*
-app.get('/',  HelloWorld )
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
-
-
-async function HelloWorld (req:Request,res:Response) {
-  res.status(200).send('Hellow guys');
 }
 */
