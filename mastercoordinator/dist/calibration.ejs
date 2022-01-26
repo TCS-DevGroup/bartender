@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <script src="libs/socket.io.js"></script> -->
+    
+
+    
+<style>
+    table, th, td {
+        border: 2px solid black;
+        border-collapse: collapse;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    img {
+        margin-top: 3%;
+        margin-left: 3%;
+        margin-bottom: 3%;
+    }
+    h4 {
+        margin-top: 3%;
+        margin-left: 3%;
+        
+        font-size: 30px;
+        display:inline-block;   
+    }
+    button {
+        
+        margin-left: 3%;
+        margin-bottom: 3%;
+        background-color: #808080;
+        border: line;
+        color: white;
+        padding: 0px 5px;
+        font-size: 15px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+
+</style>
+
+</head>
+<body style="background-color: #eee">
+<br><br>
+
+<img src="KEN-HYGIENE-SYSTEMS_logo_160419.png" alt="KEN_logo" width="1007" height="150">
+
+<br>
+
+<h4 center>Trescal calibrated equipment</h4> 
+
+<br>
+
+<button id="changeExpirationDate" class="button" onClick="changeExpirationDateShow()">Change Expiration Date</button>
+
+<br>
+
+<div id="testtable">
+</div>
+    
+<br>
+
+<h4 center> Station calibration table and cyclic verification table</h4> 
+
+<br>
+
+<div class="row">
+    <div class="column" id="stationtable">
+        <br> 
+        <!-- Here comes the station calibration table from DB-->
+    </div>
+    
+    <div class="column" id="VerificationTable">
+    <br>
+        <!-- Her comes the cyclic verification table from DB -->
+    </div>
+</div>
+
+<div id="ChangeExpirationModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="dict_details">Change Expiration Date</h4>
+            </div>
+            <div class="modal-body">
+                <div id="loadpanel" style="display:none;">
+                    <br>
+                    <label class="label label-info" for="selectequipment">Select Verifycation equipment:</label>
+                    <select id="selectequipment">
+                    </select>
+                    <br>
+                    <label for="calibratedToday"><input type="checkbox" id="calibratedToday" autocomplete="off" value="" >Calibrated today</label>                
+                    <br>
+                    <label class="label label-info" for="newdate">New date (Format: yyyy-mm-dd ):</label>
+                    <input id="newdate" class="form-control" type="text">
+                    <br>
+                </div>
+                
+                <div class="modal-footer">
+                    <label class="label label-info"><span id="loadOrderMessage" style="color:red"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <button class="btn btn-success btn-lg" onclick="StoreNewDate()">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="application/x-javascript" src="scripts/APV/src/mastercoordinator/src/calibration.js"></script>    
+</body>
+</html> 
