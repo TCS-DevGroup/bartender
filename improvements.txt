@@ -1,0 +1,6 @@
+Improvements:
+
+1. Reduce the cup elevator to one motor
+2. Use the CNC table instead of 1. edition sledge
+3. Redesign cup-lifter device
+ 
