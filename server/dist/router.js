@@ -1,5 +1,13 @@
 "use strict";
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const dm = __importStar(require("./drinskManager"));
 //const fetch = require ( 'node-fetch' );
 //let os = require('os');
 let g_httpServer;
@@ -20,6 +28,9 @@ function HttpInitialize(portno) {
         console.log('user accessing Home page');
     });
     app.use(express.static("dist"));
+    app.get('/api/getUser', dm.GetUsers);
+    app.post('/api/newUser', dm.addNewUser);
+    app.post('/api/deleteUser', dm.DeleteUser);
     const io = require('socket.io')(g_httpServer);
     const port = portno;
     io.on('connection', (socket) => {

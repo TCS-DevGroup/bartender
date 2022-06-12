@@ -7,9 +7,18 @@ void setup() {
   limitSwitch.setDebounceTime(50); // set debounce time to 50 milliseconds
 }
 
-void loop() {
-  limitSwitch.loop(); // MUST call the loop() function first
+void loop() 
+{
+  bool res = false;
+  res = Is_switch_pressed(); 
+  Serial.println(res);
+}
 
+bool is_swith_pressed()
+{
+  limitSwitch.loop(); // MUST call the loop() function first
+  int switchPressed = false;
+  
   if(limitSwitch.isPressed())
     Serial.println("The limit switch: UNTOUCHED -> TOUCHED");
 
@@ -18,7 +27,14 @@ void loop() {
 
   int state = limitSwitch.getState();
   if(state == HIGH)
+  {
+    switchPressed = false;
     Serial.println("The limit switch: UNTOUCHED");
+  }    
   else
+  {   
+    switchPressed = true;
     Serial.println("The limit switch: TOUCHED");
+  }
+  return switchPressed;
 }

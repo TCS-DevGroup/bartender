@@ -1,5 +1,7 @@
-import {Request, Response} from 'express';
-//const fetch = require ( 'node-fetch' );
+import {request, Request, Response} from 'express';
+import * as dm from "./drinskManager";
+const fetch = require ( 'node-fetch' );
+const cors = require ( 'cors');
 //let os = require('os');
 
 let g_httpServer : any;
@@ -11,9 +13,10 @@ export function HttpInitialize ( portno:number )
     let express = require("express");
     let app = express();
     let bodyParser = require("body-parser");
-    app.use ( bodyParser.json() );
+    app.use ( bodyParser.json(), cors() );
 
     g_httpServer = require("http").Server(app);
+
 
     
     app.set("view engine", "ejs");
@@ -29,6 +32,12 @@ export function HttpInitialize ( portno:number )
     });
     
     app.use ( express.static("dist"));
+
+
+
+    app.get ( '/api/getUser', dm.GetUsers );
+    app.post( '/api/newUser', dm.addNewUser );
+    app.post( '/api/deleteUser', dm.DeleteUser );
 
     const io = require('socket.io')(g_httpServer);
     const port = portno;
