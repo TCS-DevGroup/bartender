@@ -25,7 +25,7 @@
     "jquery": "^3.4.1",
     "jquery-ui": "^1.12.1",
     "mysql": "^2.18.1",
-    "node-rest-client": "^3.1.0",
+    "node-rest-client": "^3.1.1",
     "nodeplotlib": "^0.7.3",
     "normal-distribution": "0.0.9",
     "package.json": "^2.0.1",
